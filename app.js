@@ -4,8 +4,21 @@ menuButton?.addEventListener('click', () => {
   const open = menu.classList.toggle('open');
   menuButton.setAttribute('aria-expanded', String(open));
 });
+menu?.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
+  menu.classList.remove('open');
+  menuButton?.setAttribute('aria-expanded', 'false');
+}));
 
-document.querySelector('#year').textContent = new Date().getFullYear();
+const path = window.location.pathname;
+menu?.querySelectorAll('a').forEach(link => {
+  const href = link.getAttribute('href');
+  if ((href === '/eventos/' && path.startsWith('/eventos/')) || (href === '/archivo-eventos/' && path.startsWith('/archivo-eventos/'))) {
+    link.setAttribute('aria-current', 'page');
+  }
+});
+
+const year = document.querySelector('#year');
+if (year) year.textContent = new Date().getFullYear();
 
 const list = document.querySelector('#event-list');
 const empty = document.querySelector('#event-empty');
@@ -15,7 +28,7 @@ function safeText(value) {
   return String(value ?? '').replace(/[&<>"']/g, char => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
 }
 
-fetch('data/events.json')
+if (list && empty) fetch('/data/events.json')
   .then(response => {
     if (!response.ok) throw new Error('No se pudo cargar la agenda');
     return response.json();

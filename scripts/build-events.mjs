@@ -79,9 +79,10 @@ function layout({ title, description, canonical, image, body, schema = null }) {
   <meta property="og:description" content="${escapeHtml(description)}"><meta property="og:image" content="${image}">
   <meta name="twitter:card" content="summary_large_image"><link rel="stylesheet" href="/styles.css?v=20260823-2">${schemaTag}
 </head><body class="form-page">
-  <header class="site-header"><a class="brand" href="/"><img src="/assets/images/logo-pereira-es-salsa.png" width="373" height="150" alt="Pereira es Salsa"></a><nav aria-label="Navegación"><a href="/#agenda">Agenda</a><a href="/eventos/">Eventos</a><a href="/archivo-eventos/">Archivo</a></nav><button class="header-radio" data-radio-toggle type="button"><span class="live-mini" aria-hidden="true"></span><span data-radio-button-label>Escuchar en vivo</span></button></header>
+  <header class="site-header"><a class="brand" href="/" aria-label="Pereira es Salsa, inicio"><img src="/assets/images/logo-pereira-es-salsa.png" width="373" height="150" alt="Pereira es Salsa"></a><button class="menu-button" type="button" aria-expanded="false" aria-controls="menu">Menú</button><nav id="menu" aria-label="Navegación principal"><a href="/#agenda">Agenda</a><a href="/eventos/">Eventos</a><a href="/archivo-eventos/">Archivo</a><a href="/#festival">Festival</a><a href="/#red">Nuestra red</a></nav><button class="header-radio" data-radio-toggle type="button"><span class="live-mini" aria-hidden="true"></span><span data-radio-button-label>Escuchar en vivo</span></button><a class="button button-small" href="/publicar-evento.html">Publicar evento</a></header>
   ${body}
   <footer><div><strong>Pereira es Salsa</strong><a href="/">Inicio</a></div><div><strong>Agenda local verificada</strong><a href="/publicar-evento.html">Publicar evento</a></div><p>Información sujeta a confirmación del organizador.</p></footer>
+  <script src="/app.js?v=20260823-3" defer></script>
   <script src="/radio-player.js?v=20260823-2" defer></script>
 </body></html>`;
 }
