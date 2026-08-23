@@ -29,37 +29,20 @@ Editar `data/events.json`. Solo se muestran registros futuros con `status: "veri
 
 No publicar información sin verificarla con una fuente oficial. Después de agregar páginas, actualizar `sitemap.xml`.
 
-## Publicación recomendada: GitHub Pages + dominio en Namecheap
+## Publicación: GitHub + Namecheap
 
-GitHub Pages publica el contenido de la rama `main`. El archivo `CNAME` fija
-`www.pereiraessalsa.com` como dominio principal y `.nojekyll` sirve los archivos
-estáticos sin procesamiento adicional.
+GitHub conserva el historial y la fuente del proyecto. El sitio público se sirve
+desde el document root asignado al dominio en el hosting Apache/LiteSpeed de
+Namecheap.
 
-### DNS en Namecheap
+DNS en cPanel:
 
-En **Domain List > Manage > Advanced DNS**, eliminar únicamente los registros
-conflictivos de `@` y `www` y configurar:
+| Tipo | Nombre | Destino |
+|---|---|---|
+| A | pereiraessalsa.com | 63.250.38.18 |
+| CNAME | www.pereiraessalsa.com | pereiraessalsa.com |
 
-| Tipo | Host | Valor | TTL |
-|---|---|---|---|
-| A | @ | 185.199.108.153 | Automatic |
-| A | @ | 185.199.109.153 | Automatic |
-| A | @ | 185.199.110.153 | Automatic |
-| A | @ | 185.199.111.153 | Automatic |
-| CNAME | www | elotrocorreodevillegas-rgb.github.io | Automatic |
-
-No modificar registros MX/TXT usados por correo. Después de la propagación,
-activar **Enforce HTTPS** en **GitHub > Settings > Pages**.
-
-### Configuración del repositorio
-
-1. Crear un repositorio público llamado `pereira-es-salsa`.
-2. Subir la rama `main`.
-3. Ir a **Settings > Pages**.
-4. En **Build and deployment**, elegir `Deploy from a branch`.
-5. Seleccionar `main` y `/ (root)`.
-6. Confirmar `www.pereiraessalsa.com` como dominio personalizado.
-
-El archivo `.htaccess` solo se utiliza si el sitio se aloja directamente en
-Apache/LiteSpeed; GitHub Pages lo ignora. La redirección entre el dominio raíz y
-`www` la administra Pages cuando ambos registros DNS están configurados.
+No modificar los registros MX/TXT ni los subdominios de correo. Para desplegar,
+comprimir los archivos públicos —sin `.git`—, subir el ZIP al document root y
+extraerlo aceptando la sustitución de archivos. Conservar un ZIP recuperable de
+la versión anterior fuera del document root.
