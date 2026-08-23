@@ -46,3 +46,19 @@ No modificar los registros MX/TXT ni los subdominios de correo. Para desplegar,
 comprimir los archivos públicos —sin `.git`—, subir el ZIP al document root y
 extraerlo aceptando la sustitución de archivos. Conservar un ZIP recuperable de
 la versión anterior fuera del document root.
+
+### Despliegue automatizado
+
+El workflow `Deploy to Namecheap` se ejecuta manualmente desde la pestaña
+**Actions**. Requiere un environment de GitHub llamado `production` y estos
+secretos:
+
+- `FTP_SERVER`
+- `FTP_USERNAME`
+- `FTP_PASSWORD`
+- `FTP_SERVER_DIR`
+
+La primera ejecución debe conservar `dry_run: true`. Solo después de revisar el
+listado de cambios se ejecuta con `dry_run: false`. El workflow usa FTPS, no
+elimina el directorio remoto completo y ejecuta pruebas públicas después de un
+despliegue real.
