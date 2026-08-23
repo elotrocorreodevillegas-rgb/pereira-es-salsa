@@ -1,6 +1,20 @@
 name: Deploy to Namecheap
 
 on:
+  push:
+    branches:
+      - main
+    paths:
+      - .htaccess
+      - 404.html
+      - app.js
+      - assets/**
+      - data/**
+      - index.html
+      - publicar-evento.html
+      - robots.txt
+      - sitemap.xml
+      - styles.css
   workflow_dispatch:
     inputs:
       dry_run:
@@ -49,7 +63,7 @@ jobs:
           port: 21
           server-dir: ${{ secrets.FTP_SERVER_DIR }}
           local-dir: ./
-          dry-run: ${{ inputs.dry_run }}
+          dry-run: ${{ github.event_name == 'workflow_dispatch' && inputs.dry_run || false }}
           security: strict
           timeout: 60000
           log-level: standard
@@ -62,7 +76,7 @@ jobs:
             pereira-es-salsa-deploy.zip
 
       - name: Verify production after deploy
-        if: ${{ inputs.dry_run == false }}
+        if: ${{ github.event_name == 'push' || inputs.dry_run == false }}
         shell: bash
         run: |
           curl --fail --silent --show-error --location --retry 3 \

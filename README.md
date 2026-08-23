@@ -49,16 +49,16 @@ la versión anterior fuera del document root.
 
 ### Despliegue automatizado
 
-El workflow `Deploy to Namecheap` se ejecuta manualmente desde la pestaña
-**Actions**. Requiere un environment de GitHub llamado `production` y estos
-secretos:
+El workflow `Deploy to Namecheap` publica automáticamente cuando cambian
+archivos del sitio en la rama `main`. También puede ejecutarse manualmente desde
+la pestaña **Actions**. Requiere un environment de GitHub llamado `production`
+y estos secretos:
 
 - `FTP_SERVER`
 - `FTP_USERNAME`
 - `FTP_PASSWORD`
 - `FTP_SERVER_DIR`
 
-La primera ejecución debe conservar `dry_run: true`. Solo después de revisar el
-listado de cambios se ejecuta con `dry_run: false`. El workflow usa FTPS, no
-elimina el directorio remoto completo y ejecuta pruebas públicas después de un
-despliegue real.
+El modo manual permite usar `dry_run: true` para revisar cambios sin tocar el
+servidor. El workflow usa FTPS, no elimina el directorio remoto completo y
+ejecuta pruebas públicas después de cada despliegue real.
