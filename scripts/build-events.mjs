@@ -79,9 +79,10 @@ function layout({ title, description, canonical, image, body, schema = null }) {
   <meta property="og:description" content="${escapeHtml(description)}"><meta property="og:image" content="${image}">
   <meta name="twitter:card" content="summary_large_image"><link rel="stylesheet" href="/styles.css">${schemaTag}
 </head><body class="form-page">
-  <header class="site-header"><a class="brand" href="/"><img src="/assets/images/logo-pereira-es-salsa.png" width="373" height="150" alt="Pereira es Salsa"></a><nav aria-label="Navegación"><a href="/#agenda">Agenda</a><a href="/eventos/">Eventos</a><a href="/archivo-eventos/">Archivo</a></nav></header>
+  <header class="site-header"><a class="brand" href="/"><img src="/assets/images/logo-pereira-es-salsa.png" width="373" height="150" alt="Pereira es Salsa"></a><nav aria-label="Navegación"><a href="/#agenda">Agenda</a><a href="/eventos/">Eventos</a><a href="/archivo-eventos/">Archivo</a></nav><button class="header-radio" data-radio-toggle type="button"><span class="live-mini" aria-hidden="true"></span><span data-radio-button-label>Escuchar en vivo</span></button></header>
   ${body}
   <footer><div><strong>Pereira es Salsa</strong><a href="/">Inicio</a></div><div><strong>Agenda local verificada</strong><a href="/publicar-evento.html">Publicar evento</a></div><p>Información sujeta a confirmación del organizador.</p></footer>
+  <script src="/radio-player.js" defer></script>
 </body></html>`;
 }
 

@@ -59,6 +59,7 @@
     <nav id="menu" aria-label="Navegación principal">
       <a href="#agenda">Agenda</a><a href="eventos/">Eventos</a><a href="archivo-eventos/">Archivo</a><a href="#festival">Festival</a><a href="#red">Nuestra red</a>
     </nav>
+    <button class="header-radio" data-radio-toggle type="button"><span class="live-mini" aria-hidden="true"></span><span data-radio-button-label>Escuchar en vivo</span></button>
     <a class="button button-small" href="publicar-evento.html">Publicar evento</a>
   </header>
 
@@ -68,7 +69,7 @@
         <p class="eyebrow">Pereira · Risaralda · Eje Cafetero</p>
         <h1>La salsa de Pereira<br>tiene aquí su casa</h1>
         <p class="hero-copy">Agenda, escenarios, artistas y memoria viva de una ciudad que baila. Información local, clara y verificada.</p>
-        <div class="actions"><a class="button" href="#agenda">Ver la agenda</a><a class="button button-ghost" href="https://wa.me/573205282582?text=Hola%2C%20quiero%20recibir%20informaci%C3%B3n%20de%20la%20pr%C3%B3xima%20edici%C3%B3n" target="_blank" rel="noopener">Próxima edición</a></div>
+        <div class="actions"><button class="button button-live" data-radio-toggle type="button"><span class="live-mini" aria-hidden="true"></span><span data-radio-button-label>Escuchar en vivo</span></button><a class="button button-ghost" href="#agenda">Ver la agenda</a><a class="button button-ghost" href="https://wa.me/573205282582?text=Hola%2C%20quiero%20recibir%20informaci%C3%B3n%20de%20la%20pr%C3%B3xima%20edici%C3%B3n" target="_blank" rel="noopener">Próxima edición</a></div>
       </div>
     </section>
 
@@ -76,6 +77,7 @@
       <p class="eyebrow">Actualidad local</p>
       <h2>Qué está sonando en Pereira</h2>
       <p>Estamos construyendo una cartelera confiable para encontrar planes salseros sin perder tiempo entre publicaciones dispersas.</p>
+      <button class="listen-inline" data-radio-toggle type="button"><span class="listen-bars" aria-hidden="true"><i></i><i></i><i></i></span><span><strong>Sigan la Clave</strong><small data-radio-button-label>Escuchar en vivo</small></span><b aria-hidden="true">▶</b></button>
     </section>
 
     <section class="section muted" id="agenda">
@@ -107,7 +109,7 @@
     <section class="section network" id="red">
       <p class="eyebrow">Música, información y boletería</p><h2>Una red que mueve la salsa</h2>
       <div class="network-grid">
-        <a href="https://www.siganlaclave.com" target="_blank" rel="noopener"><img src="assets/images/siganlaclave-logo.png" width="300" height="294" loading="lazy" alt="Sigan la Clave"><strong>Sigan la Clave</strong><span>Radio de salsa 24/7</span></a>
+        <article class="network-radio"><img src="assets/images/siganlaclave-logo.png" width="300" height="294" loading="lazy" alt="Sigan la Clave"><strong>Sigan la Clave</strong><span>Radio de salsa 24/7</span><button data-radio-toggle type="button"><span class="live-mini" aria-hidden="true"></span><span data-radio-button-label>Escuchar en vivo</span></button><a href="https://www.siganlaclave.com" target="_blank" rel="noopener">Visitar emisora ↗</a></article>
         <a href="https://quepase.co" target="_blank" rel="noopener"><img src="assets/images/quepase-logo.png" width="320" height="320" loading="lazy" alt="QuePase"><strong>QuePase</strong><span>Boletería y eventos</span></a>
         <a href="https://colombiasalsera.com" target="_blank" rel="noopener"><img src="assets/images/colombia-salsera-logo.png" width="320" height="320" loading="lazy" alt="Colombia Salsera"><strong>Colombia Salsera</strong><span>Actualidad nacional</span></a>
       </div>
@@ -121,5 +123,6 @@
     <p>© <span id="year"></span> Pereira es Salsa · Pereira, Risaralda</p>
   </footer>
   <script src="app.js" defer></script>
+  <script src="radio-player.js" defer></script>
 </body>
 </html>
