@@ -1,0 +1,44 @@
+[
+  {
+    "slug": "evento-futuro-prueba",
+    "name": "Evento futuro de prueba",
+    "status": "verified",
+    "startDate": "2099-09-12T20:00:00-05:00",
+    "endDate": "2099-09-13T02:00:00-05:00",
+    "description": "Evento de prueba para validar la generación de la agenda.",
+    "venue": {
+      "name": "Escenario de prueba",
+      "address": "Calle 1 # 2-3",
+      "city": "Pereira",
+      "region": "Risaralda"
+    },
+    "image": "/assets/images/og-image.jpg",
+    "officialUrl": "https://example.com/evento-futuro",
+    "ticketUrl": "https://example.com/entradas",
+    "price": "$50.000",
+    "organizer": "Organizador de prueba",
+    "performers": ["Orquesta de prueba"],
+    "source": {
+      "url": "https://example.com/fuente",
+      "verifiedAt": "2026-08-23T12:00:00-05:00"
+    }
+  },
+  {
+    "slug": "evento-pasado-prueba",
+    "name": "Evento pasado de prueba",
+    "status": "verified",
+    "startDate": "2000-01-01T20:00:00-05:00",
+    "description": "Evento de prueba para validar el archivo histórico.",
+    "venue": {
+      "name": "Escenario histórico",
+      "address": "Carrera 4 # 5-6",
+      "city": "Pereira",
+      "region": "Risaralda"
+    },
+    "officialUrl": "https://example.com/evento-pasado",
+    "source": {
+      "url": "https://example.com/fuente-pasado",
+      "verifiedAt": "2026-08-23T12:00:00-05:00"
+    }
+  }
+]

@@ -10,11 +10,13 @@ on:
       - app.js
       - assets/**
       - data/**
+      - content/**
       - index.html
       - publicar-evento.html
       - robots.txt
       - sitemap.xml
       - styles.css
+      - scripts/build-events.mjs
   workflow_dispatch:
     inputs:
       dry_run:
@@ -44,6 +46,8 @@ jobs:
       - name: Validate deployable files
         shell: bash
         run: |
+          node scripts/test-events.mjs
+          node scripts/build-events.mjs
           test -f index.html
           test -f styles.css
           test -f app.js
@@ -52,6 +56,8 @@ jobs:
           test -f .htaccess
           test -d assets/images
           test -d data
+          test -f eventos/index.html
+          test -f archivo-eventos/index.html
 
       - name: Sync site over FTPS
         uses: SamKirkland/FTP-Deploy-Action@v4.4.0
@@ -71,6 +77,10 @@ jobs:
             **/.git*
             **/.git*/**
             **/.github/**
+            **/content/**
+            **/docs/**
+            **/scripts/**
+            **/tests/**
             **/node_modules/**
             README.md
             pereira-es-salsa-deploy.zip
@@ -85,3 +95,5 @@ jobs:
             https://www.pereiraessalsa.com/robots.txt | grep -q 'sitemap.xml'
           curl --fail --silent --show-error \
             https://www.pereiraessalsa.com/sitemap.xml | grep -q '<urlset'
+          curl --fail --silent --show-error \
+            https://www.pereiraessalsa.com/eventos/ | grep -q 'Próximos eventos de salsa'

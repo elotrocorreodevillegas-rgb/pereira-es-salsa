@@ -12,22 +12,42 @@ Abrir `http://localhost:8080`.
 
 ## Actualizar la agenda
 
-Editar `data/events.json`. Solo se muestran registros futuros con `status: "verified"`:
+Editar `content/events.json`. El workflow valida los datos y genera
+automáticamente `data/events.json`, `/eventos/`, `/archivo-eventos/` y el
+`sitemap.xml`. Ejemplo mínimo:
 
 ```json
 [
   {
+    "slug": "nombre-del-evento-2026",
     "name": "Nombre del evento",
-    "date": "2026-09-12",
-    "venue": "Nombre del lugar",
-    "city": "Pereira",
-    "url": "https://enlace-oficial.example",
-    "status": "verified"
+    "status": "verified",
+    "startDate": "2026-09-12T20:00:00-05:00",
+    "description": "Descripción verificable del evento.",
+    "venue": {
+      "name": "Nombre del lugar",
+      "address": "Dirección",
+      "city": "Pereira",
+      "region": "Risaralda"
+    },
+    "officialUrl": "https://enlace-oficial.example",
+    "source": {
+      "url": "https://fuente-de-verificacion.example",
+      "verifiedAt": "2026-08-23T12:00:00-05:00"
+    }
   }
 ]
 ```
 
-No publicar información sin verificarla con una fuente oficial. Después de agregar páginas, actualizar `sitemap.xml`.
+Estados permitidos: `draft`, `verified`, `postponed` y `cancelled`. Los borradores
+no se publican. No publicar información sin verificarla con una fuente oficial.
+
+Ejecutar antes de cada commit:
+
+```bash
+node scripts/test-events.mjs
+node scripts/build-events.mjs
+```
 
 ## Publicación: GitHub + Namecheap
 
