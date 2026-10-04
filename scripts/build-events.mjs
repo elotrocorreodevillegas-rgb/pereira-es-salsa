@@ -77,7 +77,7 @@ function layout({ title, description, canonical, image, body, schema = null }) {
   <meta property="og:type" content="website"><meta property="og:locale" content="es_CO">
   <meta property="og:url" content="${canonical}"><meta property="og:title" content="${escapeHtml(title)}">
   <meta property="og:description" content="${escapeHtml(description)}"><meta property="og:image" content="${image}">
-  <meta name="twitter:card" content="summary_large_image"><link rel="stylesheet" href="/styles.css?v=20260823-2">${schemaTag}
+  <meta name="twitter:card" content="summary_large_image"><link rel="stylesheet" href="/styles.css?v=20261004-1">${schemaTag}
 </head><body class="form-page">
   <header class="site-header"><a class="brand" href="/" aria-label="Pereira es Salsa, inicio"><img src="/assets/images/logo-pereira-es-salsa.png" width="373" height="150" alt="Pereira es Salsa"></a><button class="menu-button" type="button" aria-expanded="false" aria-controls="menu">Menú</button><nav id="menu" aria-label="Navegación principal"><a href="/#agenda">Agenda</a><a href="/eventos/">Eventos</a><a href="/archivo-eventos/">Archivo</a><a href="/#festival">Festival</a><a href="/#red">Nuestra red</a></nav><button class="header-radio" data-radio-toggle type="button"><span class="live-mini" aria-hidden="true"></span><span data-radio-button-label>Escuchar en vivo</span></button><a class="button button-small" href="/publicar-evento.html">Publicar evento</a></header>
   ${body}
