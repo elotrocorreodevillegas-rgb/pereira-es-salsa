@@ -77,13 +77,14 @@ function layout({ title, description, canonical, image, body, schema = null }) {
   <meta property="og:type" content="website"><meta property="og:locale" content="es_CO">
   <meta property="og:url" content="${canonical}"><meta property="og:title" content="${escapeHtml(title)}">
   <meta property="og:description" content="${escapeHtml(description)}"><meta property="og:image" content="${image}">
-  <meta name="twitter:card" content="summary_large_image"><link rel="stylesheet" href="/styles.css?v=20261004-1">${schemaTag}
+  <meta name="twitter:card" content="summary_large_image"><link rel="stylesheet" href="/styles.css?v=20261022-1">${schemaTag}
 </head><body class="form-page">
   <header class="site-header"><a class="brand" href="/" aria-label="Pereira es Salsa, inicio"><img src="/assets/images/logo-pereira-es-salsa.png" width="373" height="150" alt="Pereira es Salsa"></a><button class="menu-button" type="button" aria-expanded="false" aria-controls="menu">Menú</button><nav id="menu" aria-label="Navegación principal"><a href="/#agenda">Agenda</a><a href="/eventos/">Eventos</a><a href="/archivo-eventos/">Archivo</a><a href="/#festival">Festival</a><a href="/#red">Nuestra red</a></nav><button class="header-radio" data-radio-toggle type="button"><span class="live-mini" aria-hidden="true"></span><span data-radio-button-label>Escuchar en vivo</span></button><a class="button button-small" href="/publicar-evento.html">Publicar evento</a></header>
   ${body}
-  <footer><div><strong>Pereira es Salsa</strong><a href="/">Inicio</a></div><div><strong>Agenda local verificada</strong><a href="/publicar-evento.html">Publicar evento</a></div><p>Información sujeta a confirmación del organizador.</p></footer>
+  <footer><div><strong>Pereira es Salsa</strong><a href="/">Inicio</a></div><div><strong>Agenda local verificada</strong><a href="/publicar-evento.html">Publicar evento</a></div><div><strong>Legal</strong><a href="/aviso-legal/">Aviso legal</a><a href="/privacidad/">Privacidad</a><a href="/cookies/">Cookies</a><a href="#" data-cookies-config>Configurar cookies</a></div><p>Información sujeta a confirmación del organizador.</p></footer>
   <script src="/app.js?v=20260823-3" defer></script>
   <script src="/radio-player.js?v=20260823-2" defer></script>
+  <script src="/cookies-analitica.js?v=20261022" defer data-politica="/cookies/" data-color="#98172e" data-ga4="" data-clarity=""></script>
 </body></html>`;
 }
 
@@ -146,6 +147,7 @@ for (const event of published) {
 
 const urls = [
   ['/', 'daily', '1.0'], ['/eventos/', 'daily', '0.9'], ['/archivo-eventos/', 'weekly', '0.6'], ['/publicar-evento.html', 'monthly', '0.6'],
+  ['/aviso-legal/', 'yearly', '0.2'], ['/privacidad/', 'yearly', '0.2'], ['/cookies/', 'yearly', '0.2'],
   ...published.map(event => [event.pageUrl, event.status === 'verified' ? 'daily' : 'weekly', '0.8'])
 ];
 const today = new Date().toISOString().slice(0, 10);
